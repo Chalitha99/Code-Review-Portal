@@ -1,0 +1,138 @@
+{
+  "app": {
+    "name": "Code Review Portal",
+    "organisation": "SEBSA",
+    "poweredBy": "Powered by"
+  },
+  "actions": {
+    "cancel": "Cancel",
+    "save": "Save",
+    "saveDraft": "Save Draft",
+    "back": "Back",
+    "backToDashboard": "Back to Dashboard",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "retry": "Try again",
+    "clear": "Clear",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "confirm": "Confirm",
+    "openDashboard": "Open Dashboard",
+    "goHome": "Go to home",
+    "skipToContent": "Skip to main content",
+    "signOut": "Sign out",
+    "reload": "Reload the page"
+  },
+  "status": {
+    "Draft": "Draft",
+    "Submitted": "Submitted",
+    "InReview": "In Review",
+    "ChangesRequested": "Changes Requested",
+    "ReSubmitted": "Re-Submitted",
+    "Approved": "Approved",
+    "Cancelled": "Cancelled"
+  },
+  "priority": {
+    "Low": "Low",
+    "Medium": "Medium",
+    "High": "High"
+  },
+  "answer": {
+    "Yes": "Yes",
+    "No": "No",
+    "NA": "N/A"
+  },
+  "generalCheckAnswer": {
+    "Ok": "OK",
+    "PartiallyOk": "Partially OK",
+    "NotOk": "Not OK",
+    "NA": "N/A"
+  },
+  "role": {
+    "Developer": "Developer",
+    "Reviewer": "Reviewer",
+    "Admin": "Admin",
+    "SuperAdmin": "Super Admin"
+  },
+  "badges": {
+    "cycle": "Cycle",
+    "rank": "Rank",
+    "active": "Active",
+    "inactive": "Inactive",
+    "unassigned": "Unassigned"
+  },
+  "checklist": {
+    "questionLabel": "Question {n}: {text}",
+    "questionCount": "{count} questions",
+    "issueInSection": "{count} needs attention",
+    "issuesInSection": "{count} need attention",
+    "allAddressed": "All checks addressed"
+  },
+  "states": {
+    "loading": "Loading…",
+    "refreshing": "Refreshing…"
+  },
+  "kpi": {
+    "onTarget": "On target",
+    "belowTarget": "Below target",
+    "targetNote": "Target is a placeholder pending business sign-off.",
+    "filterBy": "Show only {label}",
+    "clearFilter": "Clear the {label} filter"
+  },
+  "chart": {
+    "tasks": "Tasks",
+    "reviews": "Reviews"
+  },
+  "stepper": {
+    "stepLabel": "Step {number}",
+    "completed": "completed",
+    "current": "current step",
+    "blocked": "needs attention",
+    "progress": "Step {current} of {total}"
+  },
+  "table": {
+    "showingRange": "Showing {from} to {to} of {total} {noun}",
+    "showingEmpty": "Showing 0 {noun}",
+    "reorderColumn": "Reorder",
+    "searchPlaceholder": "Search…",
+    "noResults": "No matching records",
+    "noResultsHint": "Try adjusting your filters or search term.",
+    "empty": "Nothing here yet",
+    "rowsPerPage": "Rows per page",
+    "staleWarning": "These rows may be out of date — the last refresh did not complete.",
+    "page": "Page {page} of {pages}",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "sortAscending": "Sort ascending",
+    "sortDescending": "Sort descending",
+    "clearFilters": "Clear filters"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Could not reach the server. Check your connection and try again.",
+    "notFound": "We could not find that page.",
+    "forbidden": "You do not have access to this workspace.",
+    "boundaryTitle": "This page ran into a problem",
+    "boundaryBody": "The error has been logged. Reloading usually clears it; otherwise go back to the home page.",
+    "chunkTitle": "This page could not finish loading",
+    "chunkBody": "Part of the app failed to download. That is almost always a stale tab after an update — reloading fetches the current version."
+  },
+  "dropzone": {
+    "dropzone": "Drag and drop screenshots here",
+    "dropzoneOr": "or click to browse files",
+    "dropzoneTypes": "PNG, JPG, GIF, or WebP • Max 5MB each",
+    "selectImages": "Select Screenshots",
+    "imageCount": "{count} of {max} screenshots added",
+    "imageComment": "Caption for {fileName}",
+    "imageCommentPlaceholder": "Describe what this shows…",
+    "removeImage": "Remove {fileName}",
+    "imageRejected": {
+      "tooLarge": "{fileName} is larger than 5MB.",
+      "wrongType": "{fileName} is not a PNG, JPG, GIF or WebP image.",
+      "tooMany": "You can attach at most 10 images."
+    }
+  }
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "c-aim",
+    "name": "AIM",
+    "code": "AIM",
+    "description": "",
+    "color": "#ec4899",
+    "isActive": true
+  },
+  {
+    "id": "c-aasl",
+    "name": "AASL",
+    "code": "AASL",
+    "description": "aasl test",
+    "color": "#84cc16",
+    "isActive": true
+  },
+  {
+    "id": "c-semco",
+    "name": "SEMCO",
+    "code": "SEMCO",
+    "description": "Semco Maritime",
+    "color": "#7c3aed",
+    "isActive": true
+  },
+  {
+    "id": "c-blom",
+    "name": "BLOM",
+    "code": "BLOM",
+    "description": "Biomsterlandet",
+    "color": "#d946ef",
+    "isActive": true
+  },
+  {
+    "id": "c-techstart",
+    "name": "TechStart Industries",
+    "code": "TECH",
+    "description": "Software development company",
+    "color": "#ef4444",
+    "isActive": false
+  },
+  {
+    "id": "c-dataflow",
+    "name": "DataFlow Systems",
+    "code": "DFS",
+    "description": "Data analytics and BI solutions",
+    "color": "#2563eb",
+    "isActive": false
+  },
+  {
+    "id": "c-cloudnine",
+    "name": "CloudNine Services",
+    "code": "CN9",
+    "description": "Cloud infrastructure provider",
+    "color": "#06b6d4",
+    "isActive": false
+  },
+  {
+    "id": "c-acme",
+    "name": "Acme Corporation",
+    "code": "ACME",
+    "description": "Global technology solutions provider",
+    "color": "#f59e0b",
+    "isActive": false
+  }
+]

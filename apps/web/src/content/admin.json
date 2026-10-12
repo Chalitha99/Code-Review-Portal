@@ -1,0 +1,610 @@
+{
+  "workspace": {
+    "title": "Admin Dashboard",
+    "subtitle": "Welcome back, {name}. Full system overview and management.",
+    "tabs": {
+      "tasks": "Tasks",
+      "users": "Users",
+      "customers": "Customers",
+      "checklist": "Quality Checklist",
+      "handovers": "Handovers",
+      "reports": "Reports",
+      "activity": "Activity Log"
+    }
+  },
+  "kpis": {
+    "total": "Total Tasks",
+    "totalSubtitle": "Overall operational tasks",
+    "draft": "Draft",
+    "draftSubtitle": "In-progress · Not submitted",
+    "submitted": "Submitted",
+    "submittedSubtitle": "Submitted · Awaiting review",
+    "awaitingReview": "Awaiting Review",
+    "awaitingReviewSubtitle": "Submitted · Waiting for reviewer",
+    "inReview": "In Review",
+    "inReviewSubtitle": "Currently under review",
+    "changesRequested": "Changes Requested",
+    "changesRequestedSubtitle": "Feedback · Needs revision",
+    "approved": "Approved",
+    "approvedSubtitle": "Review completed · Approved",
+    "cancelled": "Cancelled",
+    "cancelledSubtitle": "Terminated · Inactive"
+  },
+  "tasks": {
+    "title": "All Tasks",
+    "caption": "All review tasks across every developer and customer",
+    "noun": "tasks",
+    "emptyTitle": "No tasks yet",
+    "emptyHint": "Tasks appear here as soon as developers create them.",
+    "filters": {
+      "developer": "Developer",
+      "developerAll": "All Developers",
+      "reviewer": "Reviewer",
+      "reviewerAll": "All Reviewers",
+      "customer": "Customer",
+      "customerAll": "All Customers"
+    },
+    "actions": {
+      "view": "View {taskCode}",
+      "assign": "Assign a reviewer to {taskCode}",
+      "cancel": "Cancel {taskCode}",
+      "delete": "Delete {taskCode}"
+    },
+    "assign": {
+      "title": "Assign Reviewer",
+      "description": "Choose who reviews {taskCode}.",
+      "label": "Reviewer",
+      "placeholder": "Select a reviewer",
+      "currentReviewer": "Currently assigned to {name}.",
+      "ownerExcluded": "The developer who raised the task cannot review it.",
+      "submit": "Assign Reviewer",
+      "submitting": "Assigning…",
+      "success": "{taskCode} assigned to {name}.",
+      "noReviewers": "No active reviewer is eligible for this task."
+    },
+    "cancel": {
+      "title": "Cancel this task?",
+      "description": "{taskCode} will be closed and can no longer be reviewed. The record is kept.",
+      "reasonLabel": "Reason for cancellation",
+      "reasonPlaceholder": "Why is this being cancelled?",
+      "confirm": "Cancel Task",
+      "confirming": "Cancelling…",
+      "keep": "Keep Task",
+      "success": "{taskCode} cancelled."
+    },
+    "delete": {
+      "title": "Delete this task?",
+      "description": "{taskCode} and everything attached to it will be permanently removed. This cannot be undone.",
+      "reasonLabel": "Reason for permanent deletion",
+      "reasonPlaceholder": "Explain why this task must be permanently deleted",
+      "confirm": "Delete Task",
+      "confirming": "Deleting…",
+      "success": "{taskCode} deleted.",
+      "onlyDraftOrCancelled": "Only a draft or cancelled task can be deleted."
+    },
+    "followUp": {
+      "action": "Change follow-up reviewer for {taskCode}",
+      "title": "Change follow-up reviewer",
+      "description": "{taskCode} is waiting for the developer's changes. Choose who reviews it when it is resubmitted.",
+      "label": "Follow-up reviewer",
+      "placeholder": "Select a reviewer",
+      "current": "Currently returns to {name}.",
+      "reasonLabel": "Reason (required)",
+      "reasonPlaceholder": "Why is the follow-up reviewer changing?",
+      "submit": "Change Reviewer",
+      "submitting": "Saving…",
+      "success": "{taskCode} will return to {name} on resubmission."
+    }
+  },
+  "users": {
+    "title": "User Management",
+    "subtitle": "Manage user roles and access",
+    "caption": "All portal users, their roles and their status",
+    "noun": "users",
+    "searchLabel": "Search users",
+    "searchPlaceholder": "Search users…",
+    "roleAll": "Role: All Roles",
+    "rolesAll": "All Roles",
+    "rolesLabel": "Roles",
+    "clearRoles": "Clear roles",
+    "statusAll": "Status: All Statuses",
+    "statusActive": "Active",
+    "statusInactive": "Inactive",
+    "statusInvited": "Invited",
+    "clearFilters": "Clear Filters",
+    "emptyTitle": "No users yet",
+    "emptyHint": "Add the first user to give someone access to the portal.",
+    "emptyFilteredTitle": "No users match the selected filters.",
+    "emptyFilteredHint": "Try adjusting your search query, role selection, or status filter.",
+    "columns": {
+      "name": "Name",
+      "email": "Email",
+      "roles": "Roles",
+      "status": "Status"
+    },
+    "add": "Add User",
+    "addTitle": "Add New User",
+    "addSubtitle": "They will get an email with a link to set their password.",
+    "editTitle": "Edit User",
+    "editSubtitle": "Change this user's details and access",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter name",
+    "emailLabel": "Email",
+    "emailPlaceholder": "Enter email",
+    "emailChange": {
+      "warning": "Changing the email signs {name} out everywhere. They will get an invite at the new address and must set a new password before they can sign in again.",
+      "success": "{name} updated. An invite to set a new password was sent to {email}."
+    },
+    "create": "Create User",
+    "creating": "Creating…",
+    "save": "Save Changes",
+    "saving": "Saving…",
+    "created": "{name} added. We've emailed {email} a link to set their password.",
+    "updated": "{name} updated.",
+    "privileged": {
+      "managed": "Managed by Super Admin",
+      "roleReasonLabel": "Reason for Admin access change",
+      "roleReasonHint": "Required because Admin or Super Admin access is being granted or removed. Saved in the audit log.",
+      "roleReasonPlaceholder": "e.g. Taking over user and customer administration for the team",
+      "statusReasonLabel": "Reason for changing this Admin's account status",
+      "statusReasonHint": "Required for users with Admin or Super Admin access. Saved in the audit log.",
+      "statusReasonPlaceholder": "e.g. Left the company / returning from leave",
+      "reasonRequired": "Provide a reason for this Admin access change."
+    },
+    "actions": {
+      "edit": "Edit {name}",
+      "activate": "Activate {name}",
+      "deactivate": "Deactivate {name}",
+      "delete": "Delete {name}",
+      "transferSuperAdmin": "Transfer Super Admin to {name}"
+    },
+    "deactivate": {
+      "title": "Deactivate this user?",
+      "description": "{name} will not be able to sign in. Their tasks and review history are kept.",
+      "confirm": "Deactivate",
+      "success": "{name} deactivated."
+    },
+    "activate": {
+      "success": "{name} activated."
+    },
+    "delete": {
+      "title": "Delete this user?",
+      "description": "{name} will be removed from normal user lists and will no longer be able to sign in. Their database record and history will be kept.",
+      "confirm": "Delete User",
+      "success": "{name} deleted.",
+      "reasonLabel": "Reason for deletion",
+      "reasonPlaceholder": "Explain why this account must be deleted"
+    },
+    "pendingTasks": {
+      "title": "{name} still has {count} pending review task(s).",
+      "hint": "Hand over or reassign them before deactivating, deleting or removing the Reviewer role.",
+      "kinds": {
+        "InReview": "In review",
+        "AwaitingResubmission": "Awaiting resubmission",
+        "Handover": "Handover pending"
+      },
+      "open": "Open {taskCode}"
+    },
+    "transferSuperAdmin": {
+      "title": "Transfer Super Admin?",
+      "description": "{name} will become the only Super Admin and all their other roles will be removed. You will lose Super Admin access and remain an Admin.",
+      "confirm": "Transfer Super Admin",
+      "success": "Super Admin ownership transferred to {name}.",
+      "blocked": "{name} is also a Reviewer and would lose that role as Super Admin. Reassign or hand over their open review work first, then try the transfer again."
+    }
+  },
+  "checklist": {
+    "title": "Quality Checklist",
+    "subtitle": "Maintain the task types, categories and questions developers answer",
+    "tabs": {
+      "questions": "Questions",
+      "categories": "Categories",
+      "taskTypes": "Task Types"
+    },
+    "retiredNote": "Inactive rows stay listed here. A submitted checklist keeps its own copy of the wording, so deactivating a question never changes a past review.",
+    "questions": {
+      "caption": "Every checklist question, its category and the task types it applies to",
+      "noun": "questions",
+      "searchLabel": "Search questions",
+      "searchPlaceholder": "Search questions…",
+      "categoryAll": "Category: All Categories",
+      "taskTypeAll": "Task Type: All Task Types",
+      "emptyTitle": "No questions yet",
+      "emptyHint": "Add a category first, then the questions that belong to it.",
+      "columns": {
+        "text": "Question",
+        "category": "Category",
+        "appliesTo": "Applies To",
+        "order": "Order",
+        "status": "Status"
+      },
+      "add": "Add Question",
+      "addTitle": "Add Question",
+      "addSubtitle": "A new question in the developer quality checklist",
+      "editTitle": "Edit Question",
+      "editSubtitle": "Change the wording, category or task types",
+      "textLabel": "Question",
+      "textPlaceholder": "e.g. Have you added unit tests for the new logic?",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Select a category",
+      "appliesToLabel": "Applies to task types",
+      "appliesToHint": "The question appears only for the task types selected here.",
+      "orderLabel": "Order",
+      "orderHint": "Lower numbers appear first within the category. Leave blank to add at the end.",
+      "created": "Question added.",
+      "updated": "Question updated.",
+      "duplicateOrder": {
+        "title": "Order {order} is already in use",
+        "description": "Another question in {category} already sits at this position.",
+        "body": "“{text}” currently holds order {order} in {category}. Choose how to place the new question.",
+        "keepBoth": "Yes — keep both",
+        "keepBothHint": "The new question takes order {order}. Everything from there down in {category} moves one place later.",
+        "replace": "No — replace it",
+        "replaceHint": "The existing question is deleted and the new one takes its place. No other question moves."
+      },
+      "actions": {
+        "edit": "Edit question: {text}",
+        "activate": "Activate question: {text}",
+        "deactivate": "Deactivate question: {text}",
+        "delete": "Delete question: {text}"
+      },
+      "reorder": {
+        "handle": "Reorder question: {text}. Drag it, or use the arrow keys.",
+        "unsavedTitle": "Unsaved order",
+        "unsavedHint": "Keep rearranging as long as you like — nothing is written until you save.",
+        "save": "Save Order",
+        "saved": "Question order saved."
+      },
+      "deactivate": {
+        "title": "Deactivate this question?",
+        "description": "It stops appearing on new checklists. Checklists already submitted are unchanged.",
+        "confirm": "Deactivate Question",
+        "success": "Question deactivated."
+      },
+      "activate": {
+        "success": "Question activated."
+      },
+      "delete": {
+        "title": "Delete this question?",
+        "description": "It is removed from the bank permanently. Only possible for a question nobody has answered.",
+        "confirm": "Delete Question",
+        "success": "Question deleted."
+      }
+    },
+    "categories": {
+      "caption": "Checklist categories and their display order",
+      "noun": "categories",
+      "emptyTitle": "No categories yet",
+      "emptyHint": "A category groups related questions — Reservation, Code, Unit Testing.",
+      "columns": {
+        "name": "Name",
+        "questionCount": "Questions",
+        "order": "Order",
+        "status": "Status"
+      },
+      "add": "Add Category",
+      "addTitle": "Add Category",
+      "addSubtitle": "A new grouping for checklist questions",
+      "editTitle": "Edit Category",
+      "editSubtitle": "Rename the category or change where it appears",
+      "nameLabel": "Name",
+      "namePlaceholder": "e.g. Unit Testing",
+      "orderLabel": "Order",
+      "orderHint": "Lower numbers appear first. Leave blank to add at the end.",
+      "created": "Category added.",
+      "updated": "Category updated.",
+      "actions": {
+        "edit": "Edit category: {name}",
+        "activate": "Activate category: {name}",
+        "deactivate": "Deactivate category: {name}",
+        "delete": "Delete category: {name}"
+      },
+      "deactivate": {
+        "title": "Deactivate this category?",
+        "description": "{name} and its questions stop appearing on new checklists.",
+        "confirm": "Deactivate Category",
+        "success": "{name} deactivated."
+      },
+      "activate": {
+        "success": "{name} activated."
+      },
+      "delete": {
+        "title": "Delete this category?",
+        "description": "{name} is removed permanently. Only possible for a category with no questions.",
+        "confirm": "Delete Category",
+        "success": "{name} deleted."
+      },
+      "reorder": {
+        "handle": "Reorder category: {name}. Drag it, or use the arrow keys.",
+        "unsavedTitle": "Unsaved order",
+        "unsavedHint": "Keep rearranging as long as you like — nothing is written until you save.",
+        "save": "Save Order",
+        "saved": "Category order saved."
+      }
+    },
+    "taskTypes": {
+      "caption": "Task types, which decide the questions a developer is asked",
+      "noun": "task types",
+      "emptyTitle": "No task types yet",
+      "emptyHint": "A task type decides which questions a developer is asked.",
+      "columns": {
+        "name": "Name",
+        "questionCount": "Questions",
+        "order": "Order",
+        "status": "Status"
+      },
+      "add": "Add Task Type",
+      "addTitle": "Add Task Type",
+      "addSubtitle": "A new kind of work developers can raise",
+      "editTitle": "Edit Task Type",
+      "editSubtitle": "Rename the task type or change where it appears",
+      "nameLabel": "Name",
+      "namePlaceholder": "e.g. Upgrade Service",
+      "orderLabel": "Order",
+      "orderHint": "Lower numbers appear first on the checklist step. Leave blank to add at the end.",
+      "created": "Task type added.",
+      "updated": "Task type updated.",
+      "actions": {
+        "edit": "Edit task type: {name}",
+        "activate": "Activate task type: {name}",
+        "deactivate": "Deactivate task type: {name}",
+        "delete": "Delete task type: {name}"
+      },
+      "deactivate": {
+        "title": "Deactivate this task type?",
+        "description": "{name} can no longer be chosen on new tasks. Existing tasks keep it.",
+        "confirm": "Deactivate Task Type",
+        "success": "{name} deactivated."
+      },
+      "activate": {
+        "success": "{name} activated."
+      },
+      "delete": {
+        "title": "Delete this task type?",
+        "description": "{name} is removed permanently. Only possible when no task and no question refers to it.",
+        "confirm": "Delete Task Type",
+        "success": "{name} deleted."
+      },
+      "reorder": {
+        "handle": "Reorder task type: {name}. Drag it, or use the arrow keys.",
+        "unsavedTitle": "Unsaved order",
+        "unsavedHint": "Keep rearranging as long as you like — nothing is written until you save.",
+        "save": "Save Order",
+        "saved": "Task type order saved."
+      }
+    }
+  },
+  "handovers": {
+    "title": "Handovers",
+    "subtitle": "Reviews handed back for reassignment",
+    "caption": "Tasks a reviewer handed back, and what happened to them",
+    "noun": "handovers",
+    "pendingNote": "A handed-over task remains in Available Tasks until a Reviewer picks it or an Admin reassigns it.",
+    "emptyTitle": "No handovers",
+    "emptyHint": "A reviewer who cannot finish a review hands it back here.",
+    "columns": {
+      "task": "Task",
+      "from": "Handed Over By",
+      "reason": "Reason",
+      "status": "Status",
+      "raised": "Raised",
+      "outcome": "Outcome"
+    },
+    "status": {
+      "Pending": "Awaiting action",
+      "Reassigned": "Reassigned",
+      "Cancelled": "Cancelled",
+      "ReturnedToQueue": "Returned to queue"
+    },
+    "filters": {
+      "searchLabel": "Search handovers",
+      "searchPlaceholder": "Search by Task ID, Title, CRIM ID, Reviewer, or Reason...",
+      "status": "Status",
+      "statusAll": "All Statuses",
+      "reviewer": "Handed Over By",
+      "reviewerAll": "All Reviewers",
+      "date": "Raised Date",
+      "dateAll": "All Time",
+      "dateToday": "Today",
+      "date7": "Last 7 Days",
+      "date30": "Last 30 Days",
+      "customer": "Customer",
+      "customerAll": "All Customers",
+      "summary": "Showing {visible} of {total} handovers",
+      "filtered": "· Filtered",
+      "emptyTitle": "No handovers match the selected filters.",
+      "emptyHint": "Adjust the filters or clear them to see all handovers.",
+      "clear": "Clear Filters"
+    },
+    "reassignedTo": "Reassigned to {name}",
+    "returned": "Returned to the open queue",
+    "actions": {
+      "view": "View {taskCode}",
+      "reassign": "Reassign {taskCode}",
+      "return": "Return {taskCode} to the open queue"
+    },
+    "reassign": {
+      "title": "Reassign this review",
+      "description": "{taskCode} was handed back by {name}. Choose who picks it up.",
+      "label": "Reviewer",
+      "placeholder": "Select a reviewer",
+      "hint": "The developer who raised the task is excluded.",
+      "reasonLabel": "Their reason",
+      "submit": "Reassign",
+      "submitting": "Reassigning…",
+      "success": "{taskCode} reassigned to {name}.",
+      "noReviewers": "No other active reviewer is eligible for this task."
+    },
+    "return": {
+      "title": "Return this task to the queue?",
+      "description": "{taskCode} becomes available for any reviewer to pick up. No one is assigned.",
+      "confirm": "Return to Queue",
+      "success": "{taskCode} returned to the open queue."
+    }
+  },
+  "reports": {
+    "title": "Reports & Analytics",
+    "subtitle": "Comprehensive insights into code review performance",
+    "emptyFiltered": "No report data found for the selected filters.",
+    "emptyFilteredHint": "Try adjusting your date range or customer selection to view reports.",
+    "filters": {
+      "heading": "Report Filters",
+      "date": "Date",
+      "dateAll": "Date: All Time",
+      "date30": "Last 30 days",
+      "date90": "Last 90 days",
+      "date365": "Last 12 months",
+      "customer": "Customer",
+      "customerAll": "Customer: All Customers",
+      "reset": "Reset Filters"
+    },
+    "charts": {
+      "rankTitle": "Quality Ranking Distribution",
+      "rankSubtitle": "Code quality based on review outcomes",
+      "cycleTitle": "Cycle Distribution",
+      "cycleSubtitle": "Distribution of cycles to approval",
+      "statusTitle": "Task Status Distribution",
+      "statusSubtitle": "Current status of all review tasks",
+      "empty": "No data for the selected filters"
+    },
+    "rank": {
+      "1": "Rank 1 (No Serious Issues)",
+      "2": "Rank 2 (Minor Issues)",
+      "3": "Rank 3 (Serious Issues)"
+    },
+    "cycle": {
+      "one": "Cycle 1",
+      "two": "Cycle 2",
+      "threePlus": "Cycle 3+"
+    },
+    "kpis": {
+      "total": "Total Tasks",
+      "totalCaption": "All review tasks",
+      "approved": "Approved",
+      "approvedCaption": "{rate}% approval rate",
+      "changesRequested": "Changes Requested",
+      "changesRequestedCaption": "Pending revisions",
+      "cancelled": "Cancelled",
+      "cancelledCaption": "Tasks cancelled",
+      "approvalRate": "Approval Rate",
+      "approvalRateCaption": "Of submitted tasks",
+      "avgCycles": "Avg Cycles",
+      "avgCyclesCaption": "Per approved task",
+      "avgCyclesHigh": "High iterations",
+      "avgCyclesEfficient": "Efficient",
+      "avgRank": "Avg Quality Rank",
+      "avgRankCaption": "1 = No Serious Issues, 3 = Serious Issues",
+      "avgRankGood": "High quality",
+      "avgRankPoor": "Needs improvement",
+      "team": "Active Team",
+      "teamCaption": "Team members by role",
+      "developers": "Developers",
+      "reviewers": "Reviewers",
+      "admins": "Admins"
+    },
+    "tabs": {
+      "developers": "Developers",
+      "reviewers": "Reviewers"
+    },
+    "developers": {
+      "title": "Developer Performance",
+      "subtitle": "Individual developer metrics and code quality trends",
+      "searchLabel": "Search developers",
+      "searchPlaceholder": "Search developers…",
+      "count": "Showing {shown} of {total} developers",
+      "empty": "No developer has raised a task under these filters.",
+      "tasks": "{count} tasks · {approved} approved",
+      "approvalRate": "Approval Rate",
+      "avgRanking": "Avg Ranking",
+      "avgCycles": "Avg Cycles",
+      "changesRequested": "Changes Req.",
+      "rankTitle": "Rank Distribution",
+      "cycleTitle": "Cycle Distribution",
+      "noReviews": "No completed reviews yet",
+      "standing": {
+        "good": "Good",
+        "fair": "Fair",
+        "poor": "Needs attention",
+        "none": "No reviews"
+      }
+    },
+    "reviewers": {
+      "title": "Reviewer Activity",
+      "subtitle": "Review patterns and feedback metrics by reviewer",
+      "searchLabel": "Search reviewers",
+      "searchPlaceholder": "Search reviewers…",
+      "count": "Showing {shown} of {total} reviewers",
+      "empty": "No reviewer has completed a review under these filters.",
+      "reviews": "{count} reviews completed",
+      "approvalRate": "Approval Rate",
+      "changesRate": "Changes Req.",
+      "avgRankGiven": "Avg Rank Given",
+      "tendency": {
+        "strict": "Strict",
+        "balanced": "Balanced",
+        "lenient": "Lenient",
+        "none": "No reviews"
+      }
+    }
+  },
+  "customers": {
+    "title": "Customer Management",
+    "subtitle": "Manage customer records",
+    "caption": "All customers, their colour and their status",
+    "noun": "customers",
+    "searchLabel": "Search customers",
+    "searchPlaceholder": "Search customers…",
+    "emptyTitle": "No customers yet",
+    "emptyHint": "Add a customer before raising the first review task.",
+    "columns": {
+      "name": "Name",
+      "code": "Code",
+      "description": "Description",
+      "status": "Status"
+    },
+    "add": "Add Customer",
+    "addTitle": "Add New Customer",
+    "addSubtitle": "Create a new customer record",
+    "editTitle": "Edit Customer",
+    "editSubtitle": "Change this customer's details",
+    "nameLabel": "Name",
+    "namePlaceholder": "Enter customer name",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Enter description (optional)",
+    "colorLabel": "Customer Color",
+    "colorHint": "Select a color theme for this customer. This color will be used throughout the app for visual identification.",
+    "colorSelected": "Selected: {name}",
+    "colorSwatch": "Use {name}",
+    "codeHint": "The code is generated from the name and becomes the prefix of every Task ID for this customer, so it cannot be changed later.",
+    "preview": "Preview",
+    "create": "Create Customer",
+    "creating": "Creating…",
+    "save": "Save Changes",
+    "saving": "Saving…",
+    "created": "{name} added.",
+    "updated": "{name} updated.",
+    "actions": {
+      "edit": "Edit {name}",
+      "activate": "Activate {name}",
+      "deactivate": "Deactivate {name}",
+      "delete": "Delete {name}"
+    },
+    "deactivate": {
+      "title": "Deactivate this customer?",
+      "description": "{name} will no longer be selectable on new tasks. Existing tasks are unaffected.",
+      "confirm": "Deactivate",
+      "success": "{name} deactivated."
+    },
+    "activate": {
+      "success": "{name} activated."
+    },
+    "delete": {
+      "title": "Delete this customer?",
+      "description": "{name} will be permanently removed. This is only possible for a customer with no tasks.",
+      "confirm": "Delete Customer",
+      "success": "{name} deleted.",
+      "reasonLabel": "Reason for permanent deletion",
+      "reasonPlaceholder": "Explain why this customer must be permanently deleted"
+    }
+  }
+}

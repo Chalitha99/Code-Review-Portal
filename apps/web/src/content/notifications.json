@@ -1,0 +1,23 @@
+{
+  "trigger": {
+    "label": "Notifications",
+    "labelWithCount": "Notifications, {count} unread",
+    "overflowCount": "9+"
+  },
+  "panel": {
+    "title": "Notifications",
+    "markAllRead": "Mark all as read",
+    "empty": "You have no notifications.",
+    "emptyHint": "Approvals, change requests and resubmissions will appear here."
+  },
+  "kind": {
+    "TaskApproved": "Approved",
+    "ChangesRequested": "Changes requested",
+    "TaskResubmitted": "Resubmitted",
+    "TaskSubmitted": "Submitted",
+    "TaskAssigned": "Assigned to you",
+    "TaskReassigned": "Reassigned to you",
+    "TaskHandedOver": "Handed over",
+    "TaskCancelled": "Cancelled"
+  }
+}

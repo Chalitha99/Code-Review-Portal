@@ -1,0 +1,14 @@
+# The toolchain is LF-only: Prettier is configured with `endOfLine: "lf"`, so
+# letting Git rewrite line endings per-platform would make `format:check` fail
+# on Windows checkouts of files that are correctly formatted.
+* text=auto eol=lf
+
+# Binary assets Git must never touch.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary

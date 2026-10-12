@@ -1,0 +1,100 @@
+/*
+ * Element defaults — the rules that apply to bare HTML. Anything needing a
+ * class is a utility or a component.
+ *
+ * Tokens come from Themes.css, which index.css imports first. Every custom
+ * property referenced below is defined there; referencing one that is not
+ * silently drops the declaration, which is exactly how the file this replaced
+ * came to have four dead rules.
+ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink-700);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /*
+   * ⚠️ This sets an EXPLICIT colour, which beats inheritance. A heading placed
+   * on a dark surface — the login brand panel, any future inverse card — will
+   * render navy on that surface unless it carries its own `text-*` utility.
+   * Utilities win over this base layer, so `text-white` is the fix.
+   *
+   * The real-browser axe check in `e2e/accessibility.spec.ts` catches misses;
+   * jsdom cannot, because it does not compute colour.
+   */
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-ink-900);
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  /*
+   * Show focus rings for keyboard users but not on mouse click. The portal is
+   * heavily form- and dialog-driven, so a visible focus path is load-bearing
+   * for the accessibility acceptance criteria, not decoration.
+   */
+  :focus-visible {
+    outline: 2px solid var(--color-violet-600);
+    outline-offset: 2px;
+  }
+
+  /* Long identifiers (CRIM IDs, Task IDs) must never blow out a grid column. */
+  code,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+  }
+
+  /*
+   * Pointer cursor on anything clickable.
+   *
+   * Tailwind v4's Preflight sets `cursor: default` on `<button>` — a deliberate
+   * change from v3, and the reason every button in this app looked inert on
+   * hover. The shared class strings (`buttonVariants`, `IconButton`, `TAB_BASE`)
+   * all carry `cursor-pointer` now; this base rule is the safety net that covers
+   * the one-off buttons those constants do not reach, so the fix cannot be
+   * forgotten at a new call site.
+   *
+   * `:not(:disabled)` matters: a disabled control must keep the default arrow,
+   * or it advertises an interaction that will not happen.
+   */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  summary {
+    cursor: pointer;
+  }
+}
+
+@layer utilities {
+  /* Respect users who have asked the OS to reduce motion. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/*
+ * `.transform-smooth` used to live here — a second card-hover implementation,
+ * declared outside every `@layer` so it beat the Tailwind utilities in
+ * `HOVER_LIFT`, which `WorkspaceCard` also carried. Two transitions and two
+ * translate distances on one element is what made the hover feel abrupt.
+ *
+ * There is now exactly one card hover: `components/ui/hoverLift.ts`.
+ */

@@ -1,0 +1,43 @@
+/*
+ * Stylesheet entry point — the only CSS file the application imports.
+ *
+ * Order matters. CSS requires every `@import` before any other rule, and
+ * Tailwind resolves these itself and processes the flattened result, so
+ * `@theme` and `@utility` work from the imported files.
+ *
+ *   Themes.css   design tokens, and the gradient utilities that `@theme`
+ *                cannot generate because there is no gradient namespace
+ *   base.css     element defaults
+ *
+ * Two files that used to sit here are deliberately gone:
+ *
+ *   utilities.css  declared a SECOND set of gradient utilities against
+ *                  `--gradient-*` custom properties that were never defined, so
+ *                  all six emitted `background-image: var(--undefined)`.
+ *                  Themes.css is the one place the brand ramp is defined.
+ *   Pages.css      held two `@keyframes` (enter-up, float-slow) that nothing
+ *                  referenced, plus an empty section header.
+ *
+ * Add a file back only when it earns its place, and wire it in here.
+ */
+
+@import 'tailwindcss';
+
+/* The app is light-only: `dark:` must never follow the OS colour scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Self-hosted so there is no external font request and no flash of fallback.
+ * Latin subsets only — the full families ship Cyrillic, Greek and Vietnamese
+ * that this application never renders.
+ */
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-700.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-700.css';
+
+@import './Themes.css';
+@import './base.css';

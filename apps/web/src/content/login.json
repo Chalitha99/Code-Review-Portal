@@ -1,0 +1,36 @@
+{
+  "brandPanel": {
+    "eyebrow": "Service Delivery Portal",
+    "title": "Code Review Portal",
+    "subtitle": "Intelligent quality checklists, structured feedback, and seamless approvals — in one place.",
+    "highlights": [
+      "Dynamic checklists driven by task type",
+      "Structured reviews with ranked outcomes",
+      "Full review history and cycle tracking"
+    ]
+  },
+  "form": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to continue to the Code Review Portal.",
+    "emailLabel": "Work email",
+    "emailPlaceholder": "you@sebsaworld.com",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "forgotPassword": "Forgot password?",
+    "remember": "Remember me",
+    "submit": "Sign in",
+    "submitting": "Signing in…",
+    "dividerLabel": "or",
+    "ssoButton": "Sign in with SEBSA"
+  },
+  "messages": {
+    "invalidCredentials": "Invalid email or password.",
+    "success": "Signed in as {name}",
+    "signedOut": "You have been signed out.",
+    "passwordSaved": "Password saved. Sign in to continue.",
+    "ssoUnavailable": "Single sign-on goes live in Phase 2. Use a demo account for now."
+  },
+  "demoHint": "Demo · any seeded user · password Sebsa@2026"
+}

@@ -1,0 +1,298 @@
+[
+  {
+    "id": "cat-reservation",
+    "name": "Reservation",
+    "order": 1,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-reservation-1",
+        "categoryId": "cat-reservation",
+        "text": "Have you reserved the files before starting working on them?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-reservation-2",
+        "categoryId": "cat-reservation",
+        "text": "When introducing new cust layer file, have you checked in an empty 0th version without any modifications?",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "q-reservation-3",
+        "categoryId": "cat-reservation",
+        "text": "When introducing new cust layer files Have you inherited from the correct layer?",
+        "order": 3,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-customization"]
+  },
+  {
+    "id": "cat-code",
+    "name": "Code",
+    "order": 2,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-code-1",
+        "categoryId": "cat-code",
+        "text": "Have you used AQS naming standards?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-code-2",
+        "categoryId": "cat-code",
+        "text": "Have you used AQS code commenting standards?",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "q-code-3",
+        "categoryId": "cat-code",
+        "text": "Have you indented your code according to AQS standards?",
+        "order": 3,
+        "isActive": true
+      },
+      {
+        "id": "q-code-4",
+        "categoryId": "cat-code",
+        "text": "Have you added a history comment to your layout file?",
+        "order": 4,
+        "isActive": true
+      },
+      {
+        "id": "q-code-5",
+        "categoryId": "cat-code",
+        "text": "Have you minimized overtakes?",
+        "order": 5,
+        "isActive": true
+      },
+      {
+        "id": "q-code-6",
+        "categoryId": "cat-code",
+        "text": "All database files generated for the introduced modifications get deployed without errors?",
+        "order": 6,
+        "isActive": true
+      },
+      {
+        "id": "q-code-7",
+        "categoryId": "cat-code",
+        "text": "All files related to client modifications (.cs, designer.cs, .resx, .csproj, Properties folder, language descriptors) are checked in to Harvest?",
+        "order": 7,
+        "isActive": true
+      },
+      {
+        "id": "q-code-8",
+        "categoryId": "cat-code",
+        "text": "Database script files (.cdb) for new database objects are checked-in and re-deployable?",
+        "order": 8,
+        "isActive": true
+      },
+      {
+        "id": "q-code-9",
+        "categoryId": "cat-code",
+        "text": "Does C# projects which you modified compile without errors?",
+        "order": 9,
+        "isActive": true
+      },
+      {
+        "id": "q-code-10",
+        "categoryId": "cat-code",
+        "text": "Do database calls have \u0026AO prefixed in client code?",
+        "order": 10,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-customization"]
+  },
+  {
+    "id": "cat-configurations",
+    "name": "Configurations",
+    "order": 3,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-configurations-1",
+        "categoryId": "cat-configurations",
+        "text": "Have you used \u0026AO. prefix in lobby data sources?",
+        "order": 1,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-configuration", "tt-lobby"]
+  },
+  {
+    "id": "cat-quick-reports",
+    "name": "Quick Reports",
+    "order": 4,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-quick-reports-1",
+        "categoryId": "cat-quick-reports",
+        "text": "Have you used views instead of tables?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-quick-reports-2",
+        "categoryId": "cat-quick-reports",
+        "text": "Have you used \u0026AO. prefix in all method calls and view calls?",
+        "order": 2,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-quick-report"]
+  },
+  {
+    "id": "cat-upgrade-quality",
+    "name": "Upgrade Quality",
+    "order": 5,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-upgrade-quality-1",
+        "categoryId": "cat-upgrade-quality",
+        "text": "Have you verified if the cdb scripts are deployable in an upgraded db?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-upgrade-quality-2",
+        "categoryId": "cat-upgrade-quality",
+        "text": "If database objects are re-named, have you done data move scripts? Or rename methods in Database_SYS are used?",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "q-upgrade-quality-3",
+        "categoryId": "cat-upgrade-quality",
+        "text": "Have you consulted the project lead before renaming any form/DB objects/Middle Tier Objects and configurations?",
+        "order": 3,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-upgrade-service"]
+  },
+  {
+    "id": "cat-security",
+    "name": "Security",
+    "order": 6,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-security-1",
+        "categoryId": "cat-security",
+        "text": "Have you scanned the client files/ reports for new/changed presentation objects and checked in to the harvest?",
+        "order": 1,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-customization"]
+  },
+  {
+    "id": "cat-translations",
+    "name": "Translations",
+    "order": 7,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-translations-1",
+        "categoryId": "cat-translations",
+        "text": "Have you scanned and checked in the LNG file?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-translations-2",
+        "categoryId": "cat-translations",
+        "text": "Have you performed and checked in translations if applicable?",
+        "order": 2,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": ["tt-customization"]
+  },
+  {
+    "id": "cat-unit-testing",
+    "name": "Unit Testing",
+    "order": 8,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-unit-testing-1",
+        "categoryId": "cat-unit-testing",
+        "text": "Have you tested according to functional specification and/or test specification?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-unit-testing-2",
+        "categoryId": "cat-unit-testing",
+        "text": "Have you tested as end-user, not App owner (IFSAPP)?",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "q-unit-testing-3",
+        "categoryId": "cat-unit-testing",
+        "text": "Have you tested the performance (response time) for your customization?",
+        "order": 3,
+        "isActive": true
+      },
+      {
+        "id": "q-unit-testing-4",
+        "categoryId": "cat-unit-testing",
+        "text": "Is your code verified in DEV after the Autobuilder/ Sanity build has updated DEV?",
+        "order": 4,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": [
+      "tt-customization",
+      "tt-configuration",
+      "tt-lobby",
+      "tt-quick-report",
+      "tt-upgrade-service"
+    ]
+  },
+  {
+    "id": "cat-completion",
+    "name": "Completion",
+    "order": 9,
+    "isActive": true,
+    "questions": [
+      {
+        "id": "q-completion-1",
+        "categoryId": "cat-completion",
+        "text": "Is your CRIM object tested and approved by a functional consultant?",
+        "order": 1,
+        "isActive": true
+      },
+      {
+        "id": "q-completion-2",
+        "categoryId": "cat-completion",
+        "text": "Is your ACP named according to project naming standards?",
+        "order": 2,
+        "isActive": true
+      },
+      {
+        "id": "q-completion-3",
+        "categoryId": "cat-completion",
+        "text": "Have you put a history comment and author ID in the ACP?",
+        "order": 3,
+        "isActive": true
+      }
+    ],
+    "applicableTaskTypeIds": [
+      "tt-customization",
+      "tt-configuration",
+      "tt-lobby",
+      "tt-quick-report",
+      "tt-upgrade-service"
+    ]
+  }
+]

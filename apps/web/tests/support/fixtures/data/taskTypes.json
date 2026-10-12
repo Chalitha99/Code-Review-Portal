@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tt-customization",
+    "name": "Customization",
+    "order": 1,
+    "isActive": true
+  },
+  {
+    "id": "tt-configuration",
+    "name": "Configuration",
+    "order": 2,
+    "isActive": true
+  },
+  {
+    "id": "tt-lobby",
+    "name": "Lobby",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "id": "tt-quick-report",
+    "name": "Quick Report",
+    "order": 4,
+    "isActive": true
+  },
+  {
+    "id": "tt-upgrade-service",
+    "name": "Upgrade Service",
+    "order": 5,
+    "isActive": true
+  }
+]

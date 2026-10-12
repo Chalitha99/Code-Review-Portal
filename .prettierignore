@@ -1,0 +1,9 @@
+node_modules
+dist
+storybook-static
+coverage
+test-results
+playwright-report
+public/mockServiceWorker.js
+
+package-lock.json

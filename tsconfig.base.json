@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "lib": ["ES2023"],
+    "module": "esnext",
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+
+    /*
+     * `verbatimModuleSyntax` and `erasableSyntaxOnly` default on for every
+     * bundler-mode project (web, web-e2e, packages/*), matching the source
+     * project's shared base. apps/api overrides both to `false`: parameter
+     * decorators are not erasable, and a `import type` on a constructor
+     * param strips the metadata Nest's DI container needs at runtime — see
+     * apps/api/tsconfig.app.json.
+     */
+    "verbatimModuleSyntax": true,
+    "erasableSyntaxOnly": true,
+
+    /*
+     * Strictness — deliberately beyond `strict`, shared by every project.
+     * Two of these carry their weight immediately:
+     *
+     *   noPropertyAccessFromIndexSignature  makes `record['key']` the required
+     *     form for index signatures, which is what keeps `@typescript-eslint/
+     *     dot-notation` from demanding the opposite.
+     *   exactOptionalPropertyTypes  is why optional props across this codebase
+     *     are spelled `?: T | undefined` rather than `?: T` — see the note in
+     *     apps/web/src/components/common/states.tsx.
+     */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "useUnknownInCatchVariables": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}

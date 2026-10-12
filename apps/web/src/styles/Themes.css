@@ -1,0 +1,555 @@
+/*
+ * SDP Design Tokens — Tailwind v4 `@theme`
+ * ----------------------------------------------------------------------------
+ * Values sampled from the 26 Figma wireframe PNGs in `Figma UI Wireframes/`.
+ * The Figma file itself was not reachable (plan risk R8), so spacing and the
+ * type scale are approximated from raster measurement. Once Figma access is
+ * granted, re-derive this file from the published variables — it is the single
+ * place that needs to change.
+ *
+ * HOW TO CONSUME THESE
+ * Tailwind v4 generates a utility for every `@theme` key, namespaced by prefix:
+ *
+ *     --color-*   →  bg-*  text-*  border-*  fill-*  …
+ *     --radius-*  →  rounded-*
+ *     --shadow-*  →  shadow-*
+ *     --font-*    →  font-*
+ *
+ * So `--color-status-approved-surface` is used as `bg-status-approved-surface`.
+ *
+ * Do NOT write `bg-[--color-status-approved-surface]`. That v3-era syntax
+ * compiles to `background-color: --color-status-approved-surface`, which is not
+ * a valid CSS value — the browser silently drops the declaration and the
+ * element renders unstyled while the build still passes.
+ *
+ * Rule: components consume SEMANTIC tokens (`bg-status-approved-surface`),
+ * never raw palette values. That keeps a rebrand or a dark theme to an edit of
+ * this file.
+ */
+
+@theme {
+  /* ------------------------------------------------------- OFFICIAL BRAND */
+  /*
+   * Sampled from the official mark at
+   * https://sebsaworld.com/wp-content/uploads/sebsa-logo.svg
+   * (vendored to public/logo/sebsa-logo.svg).
+   *
+   * These are exact, unlike the wireframe-derived values below which were
+   * eyedropped from PNGs. Use them for BRAND surfaces — the logo, the login
+   * panel, gradients, focus rings. The semantic palette further down stays as
+   * designed, because status and priority colours were tuned for badge
+   * legibility and changing them would break wireframe fidelity.
+   */
+  --color-brand-cyan: #03cff0;
+  --color-brand-sky: #028bde;
+  --color-brand-purple: #7650e1;
+  --color-brand-magenta: #6600cc;
+  --color-brand-deep: #481484;
+  --color-brand-lilac: #9b83f2;
+  --color-brand-grey: #b3b3b3;
+
+  /* ---------------------------------------------------------------- palette */
+  --color-navy-50: #eef1fa;
+  --color-navy-100: #d7ddf2;
+  --color-navy-500: #26398f;
+  --color-navy-700: #16266d;
+  --color-navy-900: #0f2167; /* page headings: "Admin Dashboard", "Task Details" */
+
+  --color-violet-50: #f1eeff;
+  --color-violet-100: #e4defe;
+  --color-violet-400: #8b5cf6;
+  --color-violet-500: #7c3aed;
+  --color-violet-600: #4f2fe0; /* primary CTA: "Submit for Review", "Back to Dashboard" */
+  --color-violet-700: #4322c4;
+
+  --color-brand-blue-50: #eff6ff;
+  --color-brand-blue-100: #dbeafe;
+  --color-brand-blue-500: #3b82f6;
+  --color-brand-blue-600: #2563eb; /* links on white — 5.17:1, AA */
+  /*
+   * Text on a `brand-blue-100` tint.
+   *
+   * `brand-blue-600` on that tint measures 4.24:1 and fails WCAG AA for small
+   * text — found by the real-browser axe run on the admin tabs, where it tinted
+   * every Developer role chip and every checklist category tag. jsdom computes
+   * no colour, so nothing before that could have caught it. 5.49:1 here.
+   */
+  --color-brand-blue-700: #1d4ed8;
+
+  /* ------------------------------------------------------------- surfaces */
+  --color-surface: #ffffff;
+  --color-canvas: #f6f7fb; /* app background behind cards */
+  --color-line: #e8eaf2; /* → border-line */
+  --color-line-strong: #d3d8e8;
+
+  /* ------------------------------------------------------------------ ink */
+  /*
+   * Darkened from the values eyedropped off the wireframe PNGs, which failed
+   * WCAG AA. Measured against --color-canvas (#f6f7fb), the lightest background
+   * any of these sits on:
+   *
+   *   old #6b7591 (ink-500)  4.08:1  ✗   old #98a0b8 (ink-400)  2.6:1  ✗
+   *   new #4f5870            6.62:1  ✓   new #626b85            4.95:1 ✓
+   *
+   * Caught by the real-browser axe run, not by the jsdom suite — jsdom does not
+   * compute colour, so `color-contrast` is silently skipped there. The two are
+   * now closer in tone than a typical grey ramp; that is what AA costs on a
+   * near-white background, and legibility wins over the lighter look.
+   */
+  --color-ink-900: #0f2167;
+  --color-ink-700: #3c4661;
+  --color-ink-500: #4f5870; /* secondary / help text */
+  --color-ink-400: #626b85; /* placeholder and subtle labels */
+
+  /* ------------------------------------------------- workspace accents (§1.2)
+   *
+   * Three DISTINCT hues, per the Portal Home wireframe: Developer blue,
+   * Reviewer magenta-purple, Admin blue-violet.
+   *
+   * The previous values were `#7c3aed` and `#8b5cf6` — two neighbouring violets
+   * that were indistinguishable on the workspace cards, which is what the
+   * business reported.
+   *
+   * They also failed WCAG AA as text on the canvas: developer `#3b82f6` measured
+   * 3.44:1 and admin `#8b5cf6` 3.96:1, against the 4.5:1 small-text minimum.
+   * These carry the accent for the "Open Dashboard" link, the page-header tile
+   * and the checklist category headings, so they are text colours as much as
+   * decoration. The values below clear AA on both the canvas and white, and are
+   * ≥5:1 for white text sitting on them in the icon tiles.
+   */
+  --color-workspace-developer: #2563eb; /* 4.83:1 on canvas */
+  --color-workspace-reviewer: #0f766e; /* 4.75:1 on canvas, 5.09:1 on white — SEBSA cyan-teal */
+  --color-workspace-admin: #6d28d9; /* 6.84:1 — violet, clearly not the reviewer */
+
+  /*
+   * The same three identities as GRADIENTS.
+   *
+   * Signed off by the business against the Power App reference, so the endpoints
+   * are literal rather than derived from the solid tokens above. Each solid
+   * token is the gradient's DARK end (developer #2563eb sits between its two
+   * stops, which is what keeps the link legible while the tile stays light), so
+   * an icon tile and the link beneath it read as one colour family.
+   *
+   * These fill decorative, `aria-hidden` tiles and rules. Text never sits on
+   * them — the light ends (#60a5fa, #a78bfa) would not clear AA if it did.
+   */
+  --color-workspace-developer-start: #60a5fa;
+  --color-workspace-developer-end: #3b82f6;
+  --color-workspace-reviewer-start: #06b6d4;
+  --color-workspace-reviewer-end: #0d9488;
+  --color-workspace-admin-start: #a78bfa;
+  --color-workspace-admin-end: #8b5cf6;
+
+  /* --------------------------------------- task status (8 states, plan §1.1) */
+  --color-status-draft: #92400e;
+  --color-status-draft-surface: #fef3c7;
+  --color-status-submitted: #1e40af;
+  --color-status-submitted-surface: #dbeafe;
+  --color-status-in-review: #3730a3;
+  --color-status-in-review-surface: #e0e7ff;
+  --color-status-changes-requested: #92400e;
+  --color-status-changes-requested-surface: #fef3c7;
+  --color-status-re-submitted: #4338ca;
+  --color-status-re-submitted-surface: #e0e7ff;
+  --color-status-approved: #166534;
+  --color-status-approved-surface: #dcfce7;
+  --color-status-cancelled: #991b1b;
+  --color-status-cancelled-surface: #fee2e2;
+  --color-status-handover: #9a3412;
+  --color-status-handover-surface: #ffedd5;
+
+  /* ------------------------------------------------------ priority (3 tiers) */
+  --color-priority-low: #374151;
+  --color-priority-low-surface: #f3f4f6;
+  --color-priority-medium: #92400e;
+  --color-priority-medium-surface: #fef3c7;
+  --color-priority-high: #991b1b;
+  --color-priority-high-surface: #fee2e2;
+
+  /* ------------------------- checklist answers (Yes | No | N/A — spec FL 2.6) */
+  /* `yes` darkened with `--color-success` below; see the note there. */
+  --color-answer-yes: #15803d;
+  --color-answer-no: #dc2626;
+  --color-answer-na: #0f2167;
+
+  /* ------------------------------- review rank (1 clean / 2 minor / 3 severe) */
+  --color-rank-1: #16a34a;
+  --color-rank-1-surface: #dcfce7;
+  --color-rank-2: #b45309;
+  --color-rank-2-surface: #fef3c7;
+  --color-rank-3: #b91c1c;
+  --color-rank-3-surface: #fee2e2;
+
+  /* ------------------------------------------------------------- feedback UI */
+  /*
+   * These four are used BOTH as text on a light surface and as a fill behind
+   * white text, so each has to clear 4.5:1 against white in both directions.
+   * Measured against #ffffff:
+   *
+   *   old #16a34a (success)  3.30:1  ✗      old #d97706 (warning)  3.19:1  ✗
+   *   new #15803d            5.02:1  ✓      new #b45309            5.02:1  ✓
+   *
+   *   #dc2626 (danger)  4.83:1  ✓      #2563eb (info)  5.17:1  ✓   (unchanged)
+   *
+   * Caught by the real-browser axe run on the Analytics screen, where the
+   * "On target" line is `text-success` on white — the jsdom suite skips
+   * `color-contrast` entirely because it computes no colour. Same class of
+   * defect as the ink ramp above, found the same way.
+   */
+  --color-success: #15803d;
+  --color-success-surface: #f0fdf4;
+  --color-warning: #b45309;
+  --color-warning-surface: #fffbeb;
+  --color-danger: #dc2626;
+  --color-danger-surface: #fef2f2;
+  --color-info: #2563eb;
+  --color-info-surface: #eff6ff;
+
+  /* ------------------------------------------------------------------- type */
+  /* Headings in the wireframes are a geometric sans (Poppins-like); body is a
+     neutral UI sans. Confirm exact families when Figma access lands (R8). */
+  --font-display: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', ui-monospace, Consolas, monospace;
+
+  /*
+   * `--font-ui` was here: the platform UI stack, for the portal home hero title
+   * and nothing else. The hero is in Poppins now, matching the wireframe and
+   * every other heading, so the token had no call sites left and is deleted
+   * rather than kept "in case" — the same rule the dependency table applies.
+   *
+   * If a system-font escape hatch is ever wanted again, weigh it first: a second
+   * body face is how a type scale stops being a scale.
+   */
+
+  /* ------------------------------------------------------------------ radii */
+  --radius-badge: 9999px;
+  --radius-control: 0.625rem; /* 10px — inputs, buttons */
+  --radius-card: 0.875rem; /* 14px — panels and cards */
+
+  /* ---------------------------------------------------------------- shadows */
+  /* The wireframe cards use a very soft, low-contrast elevation. */
+  --shadow-card: 0 1px 2px 0 rgb(15 33 103 / 0.04), 0 1px 3px 0 rgb(15 33 103 / 0.06);
+  --shadow-card-hover: 0 4px 12px -2px rgb(15 33 103 / 0.1);
+  --shadow-popover: 0 10px 32px -8px rgb(15 33 103 / 0.18);
+
+  /*
+   * Elevation for a card that carries NO border.
+   *
+   * The pair above is a hairline plus a whisper: it reads as depth only because
+   * `border-line` is drawing the card's edge. Take the border away — as the Home
+   * workspace cards do — and the same shadow leaves the card looking painted on.
+   *
+   * A separate pair rather than a stronger `--shadow-card`, because that token
+   * is on every panel, every `StatCard` and the table shell; raising it would
+   * set the whole product floating. Use these two only where there is no border
+   * to lose.
+   *
+   * Two layers each: a tight contact shadow so the card sits ON the canvas, and
+   * a wide soft one for the ambient throw. One layer alone reads as either a
+   * hard outline or a smudge.
+   */
+  --shadow-card-raised:
+    0 2px 4px -1px rgb(15 33 103 / 0.06), 0 10px 20px -6px rgb(15 33 103 / 0.12);
+  --shadow-card-raised-hover:
+    0 8px 14px -4px rgb(15 33 103 / 0.1), 0 22px 36px -10px rgb(15 33 103 / 0.18);
+
+  /* Brand-tinted elevation for the login card, which sits on a colour field
+     where a neutral grey shadow reads as dirt rather than depth. */
+  --shadow-brand: 0 24px 60px -20px rgb(72 20 132 / 0.45);
+
+  /* ------------------------------------------------------------- motion */
+  /*
+   * Ambient drift for decorative background shapes.
+   *
+   * Three variants with different durations and paths so shapes never move in
+   * lockstep — synchronised motion reads as a mechanism, uneven motion reads as
+   * atmosphere. Durations are long (20–30s) and displacement small (≤20px):
+   * fast or wide movement next to a form pulls the eye off the fields.
+   *
+   * Only `transform` and `opacity` are animated, so the browser composites on
+   * the GPU with no layout or paint work per frame.
+   *
+   * The `prefers-reduced-motion` block in `styles/global.css` neutralises all of
+   * these. That is what makes ambient motion acceptable rather than merely
+   * tasteful — sustained background movement is a real problem for vestibular
+   * disorders, and honouring the OS setting is the mitigation.
+   */
+  --animate-drift-slow: drift-slow 26s ease-in-out infinite;
+  --animate-drift-medium: drift-medium 21s ease-in-out infinite;
+  --animate-drift-fast: drift-fast 17s ease-in-out infinite;
+  --animate-breathe: breathe 12s ease-in-out infinite;
+
+  @keyframes drift-slow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.75;
+    }
+    50% {
+      transform: translate3d(18px, -14px, 0) scale(1.06);
+      opacity: 1;
+    }
+  }
+
+  @keyframes drift-medium {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translate3d(-14px, 16px, 0) rotate(8deg);
+      opacity: 1;
+    }
+  }
+
+  @keyframes drift-fast {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.65;
+    }
+    50% {
+      transform: translate3d(12px, 12px, 0) scale(0.94);
+      opacity: 0.95;
+    }
+  }
+
+  /* Opacity and subtle scale for large blurred glows and accent particles. */
+  --animate-breathe-slow: breathe-slow 14s ease-in-out infinite;
+  --animate-breathe-fast: breathe-fast 9s ease-in-out infinite;
+
+  @keyframes breathe {
+    0%,
+    100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes breathe-slow {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.75;
+      transform: scale(1.06);
+    }
+  }
+
+  @keyframes breathe-fast {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.08);
+    }
+  }
+
+  /*
+   * Quicker drift, for the portal home hero.
+   *
+   * The login panel sits behind a form and is deliberately near-motionless; the
+   * home hero is the landing surface and reads as static at those durations.
+   * Roughly 60% of the login timings — still slow enough to be ambient, fast
+   * enough to be perceptible.
+   */
+  --animate-drift-slow-quick: drift-slow 16s ease-in-out infinite;
+  --animate-drift-medium-quick: drift-medium 13s ease-in-out infinite;
+  --animate-drift-fast-quick: drift-fast 10s ease-in-out infinite;
+
+  /*
+   * One-shot reveals.
+   *
+   * Everything above this point loops forever; these run once and stop. Kept
+   * short — a reveal that outstays ~500ms stops reading as polish and starts
+   * reading as latency.
+   *
+   * `translateY` only, never `translateX` or a `scale` overshoot: a horizontal
+   * transform transiently widens `scrollWidth`, and the e2e suite asserts the
+   * page never scrolls horizontally at six widths.
+   */
+  --animate-reveal-up: reveal-up 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-reveal-fade: reveal-fade 380ms ease-out both;
+
+  @keyframes reveal-up {
+    from {
+      transform: translate3d(0, 14px, 0);
+      opacity: 0;
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes reveal-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /*
+   * Skeleton shimmer.
+   *
+   * A highlight band swept across the placeholder with `translate3d`, never an
+   * animated `background-position` — the latter repaints the whole element every
+   * frame, and a loading state that costs paint is a loading state that makes
+   * the app feel slower rather than faster.
+   *
+   * This is the one place a horizontal transform is allowed. The rule elsewhere
+   * (never `translateX` on a reveal) exists because a transform widens
+   * `scrollWidth` and breaks the no-horizontal-scroll invariant; here the band
+   * lives inside an `overflow-hidden` parent, which clips it before it can.
+   *
+   * Neutralised by the global `prefers-reduced-motion` block, leaving a static
+   * tint — which is a perfectly good skeleton.
+   */
+  --animate-shimmer: shimmer 1.6s ease-in-out infinite;
+
+  @keyframes shimmer {
+    from {
+      transform: translate3d(-100%, 0, 0);
+    }
+    to {
+      transform: translate3d(100%, 0, 0);
+    }
+  }
+
+  /* The grain in the session-expired hourglass. */
+  --animate-sand-fall: sand-fall 2s ease-in infinite;
+
+  @keyframes sand-fall {
+    0% {
+      transform: translate3d(0, -4px, 0);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate3d(0, 5px, 0);
+      opacity: 0;
+    }
+  }
+}
+
+/*
+ * Gradient utilities.
+ *
+ * `@theme` only generates utilities for known namespaces (--color-*, --radius-*,
+ * --shadow-*, --font-*); there is no gradient namespace, so these are declared
+ * as first-class utilities instead. That keeps call sites reading
+ * `bg-brand-gradient` rather than an arbitrary-value escape hatch, and means the
+ * brand ramp is defined exactly once.
+ *
+ * Angle and stops mirror the official logo's `linear-gradient`
+ * (cyan → sky → purple → magenta).
+ */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(
+    135deg,
+    var(--color-brand-cyan) 0%,
+    var(--color-brand-sky) 35%,
+    var(--color-brand-purple) 68%,
+    var(--color-brand-magenta) 100%
+  );
+}
+
+/*
+ * The three workspace identities as gradients.
+ *
+ * Declared here, once, for the same reason `bg-brand-gradient` is: `@theme` only
+ * generates utilities for known namespaces and there is no gradient namespace,
+ * so a Tailwind `from-*`/`to-*` pair at each call site is the alternative — and
+ * that is precisely how the Home cards and the workspace headers drifted apart
+ * in the first place.
+ *
+ * 90°, matching the reference the business signed off. Consumed through
+ * `src/config/workspaceTheme.ts`, never by writing the class name inline.
+ */
+@utility bg-workspace-developer-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-workspace-developer-start) 0%,
+    var(--color-workspace-developer-end) 100%
+  );
+}
+
+@utility bg-workspace-reviewer-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-workspace-reviewer-start) 0%,
+    var(--color-workspace-reviewer-end) 100%
+  );
+}
+
+@utility bg-workspace-admin-gradient {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-workspace-admin-start) 0%,
+    var(--color-workspace-admin-end) 100%
+  );
+}
+
+/* Deeper variant for large fields, so the login panel does not wash out. */
+@utility bg-brand-gradient-deep {
+  background-image: linear-gradient(
+    140deg,
+    var(--color-brand-sky) 0%,
+    var(--color-brand-purple) 45%,
+    var(--color-brand-magenta) 75%,
+    var(--color-brand-deep) 100%
+  );
+}
+
+/* Brand ramp applied to text. */
+@utility text-brand-gradient {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-brand-cyan) 0%,
+    var(--color-brand-sky) 35%,
+    var(--color-brand-purple) 68%,
+    var(--color-brand-magenta) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
+/**
+ * The brand ramp as TEXT, without the light end.
+ *
+ * `text-brand-gradient` starts at `brand-cyan`, which measures 1.81:1 on a light
+ * surface — below even the 3:1 large-text minimum, let alone 4.5:1. That is fine
+ * behind white text on a gradient PANEL, and not fine when the gradient IS the
+ * text.
+ *
+ * This ramp starts at `brand-sky` (3.52:1) and darkens from there, so it clears
+ * large-text AA across its whole length. Use it for display type only —
+ * headings at 24px+, or 18.66px+ bold. Anything smaller needs a solid colour.
+ */
+@utility text-brand-gradient-deep {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-brand-sky) 0%,
+    var(--color-brand-purple) 45%,
+    var(--color-brand-magenta) 78%,
+    var(--color-brand-deep) 100%
+  );
+  background-clip: text;
+  color: transparent;
+}

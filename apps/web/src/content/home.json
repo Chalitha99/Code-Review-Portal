@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "titleLead": "CODE REVIEW",
+    "titleAccent": "PORTAL",
+    "subtitle": "Streamline your development workflow with intelligent quality checklists, structured feedback, and seamless approvals.",
+    "welcomeBack": "Welcome back,",
+    "highlights": [
+      { "id": "fast", "label": "Fast Reviews" },
+      { "id": "quality", "label": "Quality Assured" },
+      { "id": "tracking", "label": "Real-time Tracking" }
+    ]
+  },
+  "workspaces": {
+    "title": "Your Workspaces",
+    "subtitle": "Select a dashboard to manage your workflow",
+    "empty": "No workspaces are assigned to your account. Contact your administrator.",
+    "cards": {
+      "developer": {
+        "title": "Developer",
+        "description": "Submit code for review, complete quality checklists, and track your submissions through the approval process."
+      },
+      "reviewer": {
+        "title": "Reviewer",
+        "description": "Review submitted code, verify quality checklists, and provide structured feedback to developers."
+      },
+      "admin": {
+        "title": "Admin",
+        "description": "Manage users, customers, view all tasks across the system, and access comprehensive reports."
+      }
+    }
+  }
+}

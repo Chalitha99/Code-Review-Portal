@@ -1,0 +1,14 @@
+{
+  "skipToContent": "Skip to main content",
+  "mainLandmark": "Main content",
+  "appBar": {
+    "home": "Go to portal home",
+    "homeDisabled": "You are on the portal home page",
+    "brand": "SEBSA — Simple. Fast. Accurate.",
+    "notifications": "Notifications",
+    "notificationsWithCount": "Notifications, {count} unread",
+    "userMenu": "Account menu for {name}",
+    "switchUser": "Switch signed-in user"
+  },
+  "loading": "Loading content"
+}

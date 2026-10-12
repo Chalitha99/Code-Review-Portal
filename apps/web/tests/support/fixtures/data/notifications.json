@@ -1,0 +1,112 @@
+[
+  {
+    "id": "n-pinsara-001",
+    "userId": "u-pinsara",
+    "kind": "ChangesRequested",
+    "title": "Changes requested on SEMCO-017",
+    "body": "Hiruni Wijethilaka requested changes. Review Ranking: Rank 2.",
+    "href": "/developer/tasks/t-semco-017",
+    "taskId": "t-semco-017",
+    "isRead": false,
+    "createdAt": "2026-08-05T09:30:00.000Z"
+  },
+  {
+    "id": "n-001",
+    "userId": "u-hiruni",
+    "kind": "ChangesRequested",
+    "title": "Changes requested on BLOM-007",
+    "body": "Pinsara Chandika requested changes. Review Ranking: Rank 3.",
+    "href": "/developer/tasks/t-blom-007",
+    "taskId": "t-blom-007",
+    "isRead": false,
+    "createdAt": "2026-08-05T08:28:00.000Z"
+  },
+  {
+    "id": "n-002",
+    "userId": "u-hiruni",
+    "kind": "TaskApproved",
+    "title": "SEMCO-016 approved",
+    "body": "Udari Heshani approved your code review task.",
+    "href": "/developer/tasks/t-semco-016",
+    "taskId": "t-semco-016",
+    "isRead": false,
+    "createdAt": "2026-08-04T16:59:00.000Z"
+  },
+  {
+    "id": "n-003",
+    "userId": "u-hiruni",
+    "kind": "ChangesRequested",
+    "title": "Changes requested on AASL-007",
+    "body": "Pinsara Chandika requested changes. Review Ranking: Rank 2.",
+    "href": "/developer/tasks/t-aasl-007",
+    "taskId": "t-aasl-007",
+    "isRead": true,
+    "createdAt": "2026-08-02T11:10:00.000Z"
+  },
+  {
+    "id": "n-004",
+    "userId": "u-charith",
+    "kind": "TaskHandedOver",
+    "title": "BLOM-011 handed over to you",
+    "body": "Janukshan Sivakumar could not complete this review and it was reassigned.",
+    "href": "/reviewer/tasks/t-blom-011",
+    "taskId": "t-blom-011",
+    "isRead": false,
+    "createdAt": "2026-08-05T07:15:00.000Z"
+  },
+  {
+    "id": "n-005",
+    "userId": "u-charith",
+    "kind": "TaskResubmitted",
+    "title": "AASL-008 resubmitted for review",
+    "body": "Hiruni Wijethilaka responded to 2 findings and resubmitted.",
+    "href": "/reviewer/tasks/t-aasl-008",
+    "taskId": "t-aasl-008",
+    "isRead": false,
+    "createdAt": "2026-08-04T09:40:00.000Z"
+  },
+  {
+    "id": "n-006",
+    "userId": "u-pinsara",
+    "kind": "TaskResubmitted",
+    "title": "BLOM-007 resubmitted for review",
+    "body": "Hiruni Wijethilaka responded to 3 findings and resubmitted.",
+    "href": "/reviewer/tasks/t-blom-007",
+    "taskId": "t-blom-007",
+    "isRead": false,
+    "createdAt": "2026-08-05T10:02:00.000Z"
+  },
+  {
+    "id": "n-007",
+    "userId": "u-kavidu",
+    "kind": "TaskAssigned",
+    "title": "AASL-012 assigned to you",
+    "body": "An administrator assigned this review task to you.",
+    "href": "/reviewer/tasks/t-aasl-012",
+    "taskId": "t-aasl-012",
+    "isRead": true,
+    "createdAt": "2026-07-30T13:00:00.000Z"
+  },
+  {
+    "id": "n-008",
+    "userId": "u-dheliya",
+    "kind": "ChangesRequested",
+    "title": "Changes requested on SEMCO-011",
+    "body": "Kavidu Dilshan requested changes. Review Ranking: Rank 2.",
+    "href": "/developer/tasks/t-semco-011",
+    "taskId": "t-semco-011",
+    "isRead": false,
+    "createdAt": "2026-08-03T14:22:00.000Z"
+  },
+  {
+    "id": "n-009",
+    "userId": "u-udari",
+    "kind": "TaskApproved",
+    "title": "AASL-019 is awaiting a reviewer",
+    "body": "Your task entered the reviewer queue as Submitted.",
+    "href": "/developer/tasks/t-aasl-019",
+    "taskId": "t-aasl-019",
+    "isRead": true,
+    "createdAt": "2026-07-23T12:31:00.000Z"
+  }
+]

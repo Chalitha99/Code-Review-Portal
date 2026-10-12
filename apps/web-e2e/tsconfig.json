@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
+    "lib": ["ES2023", "DOM"],
+    "types": ["node"],
+
+    /*
+     * Bundler mode, matching apps/web/tsconfig.app.json rather than `nodenext`.
+     * The specs use extensionless relative imports (`./settleAnimations`) that
+     * `nodenext` rejects.
+     */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true
+  },
+  "include": ["playwright.config.ts", "tests/**/*.ts", "../api/prisma/e2e-fixtures.ts"]
+}

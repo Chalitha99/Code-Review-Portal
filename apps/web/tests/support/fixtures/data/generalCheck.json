@@ -1,0 +1,63 @@
+[
+  { "id": "gc-1", "order": 10, "text": "Do database calls have &AO prefixed?" },
+  {
+    "id": "gc-2",
+    "order": 20,
+    "text": "Have presentation objects been scanned?"
+  },
+  {
+    "id": "gc-3",
+    "order": 30,
+    "text": "Have code files been scanned for translation?"
+  },
+  {
+    "id": "gc-4",
+    "order": 40,
+    "text": "Are new forms designed according to IFS AQS guidelines?"
+  },
+  {
+    "id": "gc-5",
+    "order": 50,
+    "text": "Do cursors and SQL statements select against tables where suitable?"
+  },
+  {
+    "id": "gc-6",
+    "order": 60,
+    "text": "Are variables defined as %TYPE in PL/SQL?"
+  },
+  {
+    "id": "gc-7",
+    "order": 70,
+    "text": "Has the correct base layer (Ext or Core) been selected when extending?"
+  },
+  {
+    "id": "gc-8",
+    "order": 80,
+    "text": "Are customized files checked into Harvest with version 0 without changes?"
+  },
+  {
+    "id": "gc-9",
+    "order": 90,
+    "text": "Are COB/INS/UPG files written so they can be run several times?"
+  },
+  {
+    "id": "gc-10",
+    "order": 100,
+    "text": "Is the code indentation correct, and do blank lines separate code blocks?"
+  },
+  {
+    "id": "gc-11",
+    "order": 110,
+    "text": "Is the customization implemented in a minimally invasive way?"
+  },
+  {
+    "id": "gc-12",
+    "order": 120,
+    "text": "Are overrides used instead of overtakes?"
+  },
+  {
+    "id": "gc-13",
+    "order": 130,
+    "text": "Are there no warnings or errors shown in Developer Studio?"
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "lib": ["ES2023", "DOM"],
+    "types": ["node"],
+
+    /*
+     * Bundler mode, matching apps/web/tsconfig.app.json rather than `nodenext`.
+     * Vite processes these files.
+     */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true
+  },
+  "include": [
+    "apps/web/vite.config.ts",
+    "apps/web/vitest.config.ts",
+    "apps/web/vitest.shims.d.ts",
+    "apps/web/.storybook/*.ts",
+    "apps/api/vitest.e2e.config.ts",
+    "apps/api/vitest.config.ts"
+  ]
+}

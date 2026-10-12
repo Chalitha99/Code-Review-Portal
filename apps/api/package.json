@@ -1,0 +1,54 @@
+{
+  "name": "@sdp/api",
+  "private": true,
+  "version": "0.0.1",
+  "dependencies": {
+    "@nestjs/common": "12.0.1",
+    "@nestjs/config": "12.0.0",
+    "@nestjs/core": "12.0.1",
+    "@nestjs/jwt": "12.0.1",
+    "@nestjs/passport": "12.0.0",
+    "@nestjs/platform-express": "12.0.1",
+    "@nestjs/swagger": "12.0.1",
+    "@prisma/client": "6.19.3",
+    "argon2": "0.45.1",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.15.1",
+    "cookie-parser": "1.4.7",
+    "express": "5.2.1",
+    "helmet": "8.1.0",
+    "passport": "0.7.0",
+    "passport-jwt": "4.0.1",
+    "reflect-metadata": "0.2.2",
+    "rxjs": "7.8.2",
+    "swagger-ui-express": "5.0.1",
+    "zod": "4.4.3"
+  },
+  "scripts": {
+    "build": "npm run prisma:generate && node esbuild.config.mjs",
+    "dev": "npm run prisma:generate && node esbuild.config.mjs --watch",
+    "typecheck": "tsc -b",
+    "test": "vitest run --config vitest.config.ts",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "prisma:generate": "prisma generate --schema prisma/schema.prisma",
+    "prisma:migrate:deploy": "prisma migrate deploy --schema prisma/schema.prisma",
+    "prisma:migrate:dev": "prisma migrate dev --schema prisma/schema.prisma",
+    "prisma:seed": "prisma db seed --schema prisma/schema.prisma",
+    "prisma:migrate:status": "prisma migrate status --schema prisma/schema.prisma",
+    "prisma:seed:dev-users": "tsx prisma/seed-dev-users.ts",
+    "e2e:db:up": "node scripts/e2e-db.mjs up",
+    "e2e:db:reset": "node scripts/e2e-db.mjs reset",
+    "e2e:db:down": "node scripts/e2e-db.mjs down",
+    "e2e:serve": "node scripts/e2e-serve.mjs",
+    "db:neon-patch": "node scripts/neon-patch.mjs"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "1.4.10",
+    "@types/passport-jwt": "4.0.1",
+    "prisma": "6.19.3",
+    "tsx": "4.20.0"
+  }
+}

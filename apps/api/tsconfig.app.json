@@ -1,0 +1,42 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "lib": ["ES2023"],
+    "types": ["node", "vitest/globals"],
+
+    /*
+     * `tsconfig.base.json` turns both of these on for every other project.
+     * Nest's DI is built on parameter decorators plus `emitDecoratorMetadata`
+     * reading each constructor parameter's runtime type - `erasableSyntaxOnly`
+     * rejects decorator syntax outright (decorators are not erasable), and
+     * `verbatimModuleSyntax` would let ESLint's `consistent-type-imports`
+     * rewrite a constructor-only class reference into `import type`, which
+     * strips exactly the runtime import `emitDecoratorMetadata` needs. Both
+     * are off here; see eslint.config.js for the matching lint-side override.
+     */
+    "erasableSyntaxOnly": false,
+    "verbatimModuleSyntax": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /*
+     * Bundler mode, matching apps/web/tsconfig.app.json. @sdp/contracts ships
+     * raw TS with no build step (package.json "main"/"exports" point directly
+     * at src/index.ts), so typechecking it here needs the same resolution
+     * mode apps/web uses. `noEmit` because tsc is the `typecheck` target only
+     * - the runnable output comes from esbuild.config.mjs, which bundles
+     * @sdp/contracts inline rather than requiring it as compiled JS at
+     * runtime (plain Node cannot `require()` unparsed TypeScript).
+     */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    "paths": {
+      "@sdp/contracts": ["../../packages/contracts/src/index.ts"]
+    }
+  },
+  "include": ["src", "test", "prisma", "../../packages/contracts/src"]
+}
